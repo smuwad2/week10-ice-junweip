@@ -63,4 +63,3 @@
             </blogPost>
     
 </template>
-
