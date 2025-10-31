@@ -19,21 +19,6 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Start backend server
-      run: |
-        cd backend
-        # Start backend in background and capture logs
-        nohup npm start > backend.log 2>&1 &
-        cd ..
-        # Wait for backend to be ready (maximum ~30s)
-        for i in {1..30}; do
-          if curl -sSf http://localhost:3000/posts >/dev/null 2>&1; then
-            echo "backend ready"
-            break
-          fi
-          echo "waiting for backend... ($i)"
-          sleep 1
-        done
     - name: Run Playwright tests
       run: npm run test-ct
     - uses: actions/upload-artifact@v4
