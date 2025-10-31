@@ -1,27 +1,39 @@
 <script>
-    // TODO: Complete the code
-    export default { 
+    export default {
+        // Add code if/as necessary
+        // Hint: Add properties subject, entry and mood
         data() {
             return {
                 
             }
         },
-        // Hint: insert properties task (Object) and idx (Number)
+
         props: {
-            taskObj: Object,
+            subject: String,
+            entry: String,
+            mood: String,
+            id: Number,
+        },
+
+        computed: {
+            moodToLink () {
+                return `/assets/${this.mood.toLowerCase()}.png`
+            }
         }
-    }
+    };
 </script>
 
+
 <template>
-    <!-- TODO: add your template code here --> 
-    <div class="card">
-        <div class="card-header" style="background-color: white;">
-            <h5>Deadline: {{taskObj.deadline}}</h5>
+    <!-- TODO: add your template code here. Use boostrap card -->
+
+        <div class="card" style="width:18rem">
+            <img class="card-img-top" :src="moodToLink" alt="Card image">
+            <div class="card-body">
+                <h5 class="card-title">{{subject}}</h5>
+                <p class="card-text">{{entry}}</p>
+                <slot></slot>
+            </div>
         </div>
-        <div class="card-body">
-            <p class="card-text">{{ taskObj.desc }}</p>
-            <slot></slot>
-        </div>
-    </div>
+
 </template>

@@ -14,5 +14,5 @@
 
 <template>
     <!-- TODO: add your template code here. Use span element. --> 
-    {{ soundEmojis[level] }}
+    <span>{{soundEmojis[level]}}</span>
 </template>

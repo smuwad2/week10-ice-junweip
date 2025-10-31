@@ -40,3 +40,4 @@
     <blog-Post :postList="posts"></blog-Post>
 
 </template>
+
