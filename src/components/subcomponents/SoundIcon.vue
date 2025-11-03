@@ -1,15 +1,1 @@
-<script>
-    export default { 
-        data() {
-            return {
-                soundEmojis: ['🔇', '🔈', '🔉', '🔊']
-            }
-        },
-        // TODO: add code to define a necessary prop
-    }
-</script>
-
-<template>
-    <!-- TODO: add your template code here. Use span element. --> 
-    
-</template>
+https://github.com/smuwad2/week10-ice-junojuang/blob/main/src/components/subcomponents/SoundIcon.vue

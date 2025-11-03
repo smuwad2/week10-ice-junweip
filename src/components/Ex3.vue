@@ -35,13 +35,31 @@
         methods: {
             deletePost(id) {
                 // TODO: Complete the delete method
+                axios.get(`${this.baseUrl}/deletePost`, {
+                    params: {
+                        id: id,
+                    }
+                })
+                .then(response=> {
+                        console.log(response.data)
+                        this.posts = this.posts.filter(post => post.id!=id)
+                    }
+                )
+                
             }
-        }
+        },
+
     }
 </script>
 
 <template>
    <!-- TODO: make use of the 'blog-post' component to display the blog posts -->
-
+    
+            <blogPost v-for="post in posts" :key="post.id"
+            :subject="post.subject" 
+            :entry="post.entry" :mood="post.mood"
+            :id="post.id">
+                <button class="btn btn-primary" @click="deletePost(post.id)">Delete</button>
+            </blogPost>
+    
 </template>
-
